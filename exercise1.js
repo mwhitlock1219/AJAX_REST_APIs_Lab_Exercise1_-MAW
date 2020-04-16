@@ -52,27 +52,27 @@ function newPostLog() {
 
 //		6. Replace the post with id of 12 and render the responseJSON
 
-// function replacePost(id) {
-// 	$.ajax({
-// 		method: "PUT",
-// 		url: "https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts?id=" + id,
-// 		data:{
-// 			userID:1,
-// 			title: "New Post",
-// 			body: "New post added"
-// 		}, 
-// 		complete: function(response){
-// 			console.log(response.responseJSON);
-// 		}
-// 	})
-// }
+function replacePost(id) {
+	$.ajax({
+		method: "PUT",
+		url: "https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14",
+		data:{
+			userID:1,
+			title: "New Post",
+			body: "New post added"
+		}, 
+		complete: function(response){
+			console.log(response.responseJSON);
+		}
+	})
+}
 
 //		7. Update the title of post with id of 12 and render responseJSON
 
 function updateTitle(id){
 	$.ajax({
 		method: 'PATCH',
-		url: "https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts?id=" + id,
+		url: "https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14",
 		data: {
 			title: "Patched/Updated it"
 		},
@@ -86,7 +86,7 @@ function updateTitle(id){
 function deletePost(id){
 	$.ajax({
 		method: 'DELETE',
-		url: "https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts?id=" + id,
+		url: "https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14",
 		complete: function(response){
 			console.log(response.statusText);
 		}
@@ -115,15 +115,15 @@ $(document).ready(function(){
 	$('#newPost').on('click', function(){
 		newPostLog()
 	})
-	// $('#replace').on('click', function(){
-	// 	replacePost(12)
-	// })
-	$('#update').on('click', function(){
-		updateTitle(12)
+	$('#replace').on('click', function(){
+		replacePost()
 	})
-	// $('#delete').on('click', function(){
-	// 	deletePost(12)
-	// })
+	$('#update').on('click', function(){
+		updateTitle()
+	})
+	$('#delete').on('click', function(){
+		deletePost()
+	})
 	// $('#listPosts').on('click', function(){
 	// 	UNKNOWN()
 	// })
